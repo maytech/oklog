@@ -241,12 +241,12 @@ func runStore(args []string) error {
 	timeoutClient := &http.Client{
 		Transport: &http.Transport{
 			Proxy: http.ProxyFromEnvironment,
-			ResponseHeaderTimeout: 5 * time.Second,
+			ResponseHeaderTimeout: 30 * time.Second,
 			Dial: (&net.Dialer{
-				Timeout:   10 * time.Second,
+				Timeout:   30 * time.Second,
 				KeepAlive: 30 * time.Second,
 			}).Dial,
-			TLSHandshakeTimeout: 10 * time.Second,
+			TLSHandshakeTimeout: 30 * time.Second,
 			DisableKeepAlives:   false,
 			MaxIdleConnsPerHost: 1,
 		},
